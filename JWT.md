@@ -1,4 +1,4 @@
-# JSON Web Tokens
+# JSON Web Tokens (sourced from tutorial text at jwt.io)
 
 ### tokens have three parts, separated by dots: header, payload, signature
 
@@ -7,12 +7,12 @@
     consists of the type of token (JWT) and the hashing algorithm being used
 
     example:
-
+    ```
     {
       "alg": "HS256",
       "typ": "JWT"
     }
-
+    ```
     Then, this JSON is Base64Url encoded and becomes the first part of the JWT
 
 2. payload
@@ -40,12 +40,12 @@
     the algorithm specified in the header and sign that
 
     Here is an example using the HMAC SHA256 algorithm: 
-
+    ```
     HMACSHA256(
       base64UrlEncode(header) + "." +
       base64UrlEncode(payload),
       secret)  
-
+    ```
     The signature is used to verify the message wasn't changed along the way.  Tokens signed with a private key
 
     are used to verify that the sender of the JWT is who it says it is.
