@@ -40,28 +40,27 @@
 1. clone the repo
     ```    
     git clone https://github.com/MindPointGroup/jwpowers2_technical
-
     ```
 2. dependencies and services you need to run the application
 
     * you'll need Node.js, npm (node package manager), and MongoDB
 
     * from project root (same dir as package.json file), install dependencies with node package manager (npm)
-
+        ```
         npm install 
-
+        ```
     * install nodemon globally if you want to use it to run server.js, you can also just use "node server.js"
-
+        ```
         npm install -g nodemon
-
+        ```
     * run project using nodemon
-
-    nodemon server.js
-
+        ```
+        nodemon server.js
+        ```
     * need to start mongod if not started already (example below for ubuntu 16). Varies by Operating System and version of Linux
-
-    systemctl start mongod
-
+        ```
+        systemctl start mongod
+        ```
     * open local browser to localhost:21337
     * project should be running at localhost:21337
 
