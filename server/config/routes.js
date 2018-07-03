@@ -8,7 +8,7 @@ module.exports = (app)=>{
   app.get("/api/question",UserController.question);
   app.get("/api/answertypes",UserController.answertypes);
   app.post("/api/register",UserController.register);
-  
+  app.get("/api/auth",UserController.auth);
   app.post("/api/login",UserController.login);
   
 }

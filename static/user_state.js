@@ -1,11 +1,3 @@
-
-function isLoggedIn(){
-  
-  if(localStorage.getItem('id') === null){
-    window.location.replace("/");
-  } 
-}
-
 function logOut(){
   localStorage.clear();
   isLoggedIn();
@@ -18,9 +10,47 @@ function getId() {
 }
 
 function setId(){
-	document.getElementById("message").innerHTML = 'Cross-Examine the 8-ball!';
-	
+  document.getElementById("message").innerHTML = 'Cross-Examine the 8-ball!';
+  
 }
+
+function isLoggedIn(){
+  
+  if(localStorage.getItem('id') === null){
+
+    window.location.replace("/");
+
+  } else {
+
+    axios.get("/api/auth", {
+          headers: {
+            'Content-Type':'application/json',
+            'x-access-token': `${getId()}`
+          }
+     
+        })
+        .then(function(response){
+        
+          if(response.data.error){
+            window.location.replace("/");
+          } else {
+            
+            ; // do nothing
+
+          }
+        
+        })
+        .catch(function(error){
+
+          ;
+          
+    });
+
+  }
+
+}
+
+
 
 function makeQuestion(){
 	

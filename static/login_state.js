@@ -1,13 +1,35 @@
 
 function isLoggedIn(){
-  //console.log(localStorage.getItem('id'));
-  
+
   if(localStorage.getItem('id') !== null){
-    window.location.replace("/home");
-  } 
+
+    axios.get("/api/auth", {
+          headers: {
+            'Content-Type':'application/json',
+            'x-access-token': `${localStorage.getItem('id')}`
+          }
+     
+        })
+        .then(function(response){
+        
+          if(response.data.error){
+            ;
+          } else {
+            
+            window.location.replace("/home");
+
+          }
+        
+        })
+        .catch(function(error){
+
+          ;
+          
+    });
+
+  }
+
 }
-
-
 
 function setToken(data){
   console.log(data);

@@ -175,6 +175,33 @@ class UserController{
 
     });
   }
+  auth(req,res){
+    
+    var token = req.headers['x-access-token'];
+    jwt.verify(token, 'secret', function(err, authdata){
+
+      if (err) {
+        console.log(err);
+        res.json({error:"bad token"});
+      } else { 
+        
+        //console.log(authdata.jwtid);
+        
+        User.findOne({_id:authdata.jwtid}, (err,user)=>{
+
+          if (err){
+            console.log('error with finding user infor for home page');
+            res.json({error:"bad token"});
+          } else {
+
+            res.json({isUser:true});
+          }
+        });
+         
+      }
+
+    });
+  }
 
 }
 
