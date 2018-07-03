@@ -38,9 +38,10 @@
 ## how to start the web app
 
 1. clone the repo
-    
+    ```    
     git clone https://github.com/MindPointGroup/jwpowers2_technical
 
+    ```
 2. dependencies and services you need to run the application
 
     * you'll need Node.js, npm (node package manager), and MongoDB
