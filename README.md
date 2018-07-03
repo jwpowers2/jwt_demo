@@ -38,7 +38,7 @@
 ## how to start the web app
 
 1. clone the repo
-
+    
     git clone https://github.com/MindPointGroup/jwpowers2_technical
 
 2. dependencies and services you need to run the application
@@ -47,11 +47,11 @@
 
     * from project root (same dir as package.json file), install dependencies with node package manager (npm)
 
-    npm install 
+        npm install 
 
     * install nodemon globally if you want to use it to run server.js, you can also just use "node server.js"
 
-    npm install -g nodemon
+        npm install -g nodemon
 
     * run project using nodemon
 
