@@ -64,7 +64,7 @@ function register(){
           if(response.data.error){
             ;
           } else {
-            
+            //console.log(response.data);
             goHome(response.data);
             
           }
