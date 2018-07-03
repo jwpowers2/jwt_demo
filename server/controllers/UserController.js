@@ -121,9 +121,12 @@ class UserController{
   login(req,res){
     
     User.findOne({email:req.body.email}, (err,user)=>{
-
-      if (err){
-        res.redirect("/");
+      if (!user){
+        console.log("user not found");
+        res.json({error:"user not found"});
+        
+      } else if (err){
+        res.json({error:"login error"});
       } else {
       
         bcrypt.compare(req.body.password, user.password)

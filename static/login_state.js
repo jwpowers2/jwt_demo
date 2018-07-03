@@ -36,7 +36,8 @@ function login(){
         .then(function(response){
         
           if(response.data.error){
-            ;
+            console.log(response.data.error);
+            document.getElementById("error").innerHTML = response.data.error;
           } else {
             
             goHome(response.data);
