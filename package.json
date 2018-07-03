@@ -1,0 +1,31 @@
+{
+  "name": "jwpowers2_technical",
+  "version": "1.0.0",
+  "description": "## requirements for readme documentation:",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MindPointGroup/jwpowers2_technical.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MindPointGroup/jwpowers2_technical/issues"
+  },
+  "homepage": "https://github.com/MindPointGroup/jwpowers2_technical#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bcrypt-as-promised": "^1.1.0",
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.3.0",
+    "mongoose": "^5.1.7"
+  },
+  "devDependencies": {}
+}

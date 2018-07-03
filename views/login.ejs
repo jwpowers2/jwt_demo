@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Magic Eight Ball</title>
+	<link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="../login_state.js"></script>
+</head>
+<body onload="isLoggedIn()">
+
+  <div class="container">
+
+    <div id="header">
+      <h1>Magic 8-Ball</h1>
+      <div id="eightball">
+        <img src="8_ball.jpeg">
+      </div>
+    </div>
+    
+    <div id="login_page">
+    	
+      <h2>Login</h2>
+
+      <br>
+      <textarea id="loginEmail" placeholder="email"></textarea>
+      <br>
+      <textarea id="loginPassword" placeholder="password"></textarea>
+      <br>
+      <button class="entryButton" onclick="login()">login</button>
+      
+      <br>
+      <h2>Registration</h2>
+
+      <br>
+      <textarea id="registerEmail" placeholder="email"></textarea>
+      <br>
+      <textarea id="registerPassword" placeholder="password"></textarea>
+      <br>
+      <button class="entryButton" onclick="register()">register</button>
+</div>
+</div>
+
+<div class="col-md-3"></div>
+</div>
+
+</body>
+</html>

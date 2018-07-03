@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Magic Eight Ball</title>
+	<link rel="stylesheet" href="../style.css">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="../user_state.js"></script>
+</head>
+<body onload="setId(),loadInitialData(),isLoggedIn()">
+
+  <div class="container">
+    
+    <div id="header">
+      <h1>Magic 8-Ball</h1>
+      <div id="eightball">
+        <img src="../8_ball.jpeg">
+      </div>
+    </div>
+
+    <div id="message">   
+    </div>
+    <br>
+    <div id="question">
+    
+
+      <textarea id="questionForm" placeholder="Your Question"></textarea><br>
+      <button class="button" onclick="makeQuestion();">Shake the Magic 8-Ball</button>
+
+      <div id="log">
+
+        <div id="log_header">history of luck</div>
+        <div id="log_content"></div>
+        
+      </div>
+
+    </div>
+
+
+    <button id="logoutButton" onclick="logOut()">logout</button>
+  </div>
+
+</body>
+</html>
