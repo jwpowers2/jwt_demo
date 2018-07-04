@@ -30,3 +30,5 @@ require("./server/config/routes.js")(app);
 var server = app.listen(port, function() {
  console.log("listening on port " + port);
 });
+
+// ENCRYPTION 
