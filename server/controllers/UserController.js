@@ -3,7 +3,9 @@ var axios = require('axios');
 let bcrypt = require("bcrypt-as-promised");
 var jwt = require('jsonwebtoken');
 var jwt_key   = process.env.JWT_KEY;
-
+var fs = require('fs');
+var private_key = fs.readFileSync('ssh_keys/jwt_key.pem');
+var public_key = fs.readFileSync('ssh_keys/jwt_key.pub');
 
 class UserController{
   
@@ -14,7 +16,7 @@ class UserController{
     let query = encodeURI(q);
     
     var token = req.headers['x-access-token'];
-    jwt.verify(token, jwt_key, function(err, authdata){
+    jwt.verify(token, public_key, { algorithms: ['RS256'] }, function(err, authdata){
 
       if (err) {
         res.sendStatus(403);
@@ -35,7 +37,7 @@ class UserController{
              res.render("index", {message: JSON.stringify(response.data.error)});
 
            } else {
-
+             
              let responses = {};
 
              User.findOne({_id:authdata.jwtid}, (err,user)=>{
@@ -96,12 +98,20 @@ class UserController{
 
                     console.log(newuser);
                     
-                    
+                    /* ---- not using encryption ---
                     let newtoken = jwt.sign({
                     	jwtid:newuser._id,
                     }, jwt_key, {expiresIn: '1h'});
 
                     res.json(newtoken);
+                    --------------------------------- */
+
+                    jwt.sign({ jwtid: newuser._id }, private_key, { algorithm: 'RS256' }, function(err, newtoken) {
+
+                      console.log(newtoken);
+                      res.json(newtoken);
+
+                    });
 
                   } else {
                     
@@ -134,12 +144,19 @@ class UserController{
         bcrypt.compare(req.body.password, user.password)
         .then((result)=>{
          
-          
+          /*          
           let newtoken = jwt.sign({
             jwtid:user._id,
           }, jwt_key, {expiresIn: '1h'});
 
           res.json(newtoken);
+          */
+          jwt.sign({ jwtid: user._id }, private_key, { algorithm: 'RS256' }, function(err, newtoken) {
+
+            console.log(newtoken);
+            res.json(newtoken);
+
+          });
 
         })
         .catch((err)=>{
@@ -154,7 +171,7 @@ class UserController{
   answertypes(req,res){
     
     var token = req.headers['x-access-token'];
-    jwt.verify(token, jwt_key, function(err, authdata){
+    jwt.verify(token, public_key, { algorithms: ['RS256'] }, function(err, authdata){
 
       if (err) {
         console.log(err);
@@ -180,7 +197,7 @@ class UserController{
   auth(req,res){
     
     var token = req.headers['x-access-token'];
-    jwt.verify(token, jwt_key, function(err, authdata){
+    jwt.verify(token, public_key, { algorithms: ['RS256'] }, function(err, authdata){
 
       if (err) {
         console.log(err);

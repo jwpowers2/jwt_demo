@@ -50,4 +50,7 @@
 
     are used to verify that the sender of the JWT is who it says it is.
 
-    
+## generate key and cert
+    ```
+    https://gist.github.com/ygotthilf/baa58da5c3dd1f69fae9   
+    ```
