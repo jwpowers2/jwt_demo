@@ -2,6 +2,8 @@ var User = require("mongoose").model("User");
 var axios = require('axios');
 let bcrypt = require("bcrypt-as-promised");
 var jwt = require('jsonwebtoken');
+var jwt_key   = process.env.JWT_KEY;
+
 
 class UserController{
   
@@ -12,7 +14,7 @@ class UserController{
     let query = encodeURI(q);
     
     var token = req.headers['x-access-token'];
-    jwt.verify(token, 'secret', function(err, authdata){
+    jwt.verify(token, jwt_key, function(err, authdata){
 
       if (err) {
         res.sendStatus(403);
@@ -97,7 +99,7 @@ class UserController{
                     
                     let newtoken = jwt.sign({
                     	jwtid:newuser._id,
-                    }, 'secret', {expiresIn: '1h'});
+                    }, jwt_key, {expiresIn: '1h'});
 
                     res.json(newtoken);
 
@@ -135,7 +137,7 @@ class UserController{
           
           let newtoken = jwt.sign({
             jwtid:user._id,
-          }, 'secret', {expiresIn: '1h'});
+          }, jwt_key, {expiresIn: '1h'});
 
           res.json(newtoken);
 
@@ -152,7 +154,7 @@ class UserController{
   answertypes(req,res){
     
     var token = req.headers['x-access-token'];
-    jwt.verify(token, 'secret', function(err, authdata){
+    jwt.verify(token, jwt_key, function(err, authdata){
 
       if (err) {
         console.log(err);
@@ -178,7 +180,7 @@ class UserController{
   auth(req,res){
     
     var token = req.headers['x-access-token'];
-    jwt.verify(token, 'secret', function(err, authdata){
+    jwt.verify(token, jwt_key, function(err, authdata){
 
       if (err) {
         console.log(err);

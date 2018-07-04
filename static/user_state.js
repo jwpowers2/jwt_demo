@@ -130,7 +130,7 @@ function loadInitialData(){
           if(response.data.error){
             ;
           } else {
-            
+            console.log("JWT is: " + `${localStorage.getItem('id')}`);
             makeTable(response.data, "log_content");
 
           }
