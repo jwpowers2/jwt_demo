@@ -106,16 +106,21 @@ class UserController{
                     res.json(newtoken);
                     --------------------------------- */
 
-                    jwt.sign({ jwtid: newuser._id }, private_key, { algorithm: 'RS256' }, function(err, newtoken) {
+                    jwt.sign({ jwtid: newuser._id }, 
+                              private_key, 
+                              { algorithm: 'RS256', expiresIn:'1h' }, 
 
-                      console.log(newtoken);
-                      res.json(newtoken);
+                              function(err, newtoken) {
 
-                    });
+                                console.log(newtoken);
+                                res.json(newtoken);
+
+                              });
 
                   } else {
                     
                     res.redirect("/");
+
                   }
 
               });
@@ -151,12 +156,16 @@ class UserController{
 
           res.json(newtoken);
           */
-          jwt.sign({ jwtid: user._id }, private_key, { algorithm: 'RS256' }, function(err, newtoken) {
+          jwt.sign({ jwtid: user._id }, 
+                   private_key, 
+                   { algorithm: 'RS256', expiresIn: '1h' }, 
 
-            console.log(newtoken);
-            res.json(newtoken);
+                   function(err, newtoken) {
 
-          });
+                     console.log(newtoken);
+                     res.json(newtoken);
+
+                   });
 
         })
         .catch((err)=>{
