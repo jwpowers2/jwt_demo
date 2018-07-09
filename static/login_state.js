@@ -10,7 +10,7 @@ function isLoggedIn(){
           }
      
         })
-        .then(function(response){
+        .then((response)=>{
         
           if(response.data.error){
             ;
@@ -21,7 +21,7 @@ function isLoggedIn(){
           }
         
         })
-        .catch(function(error){
+        .catch((error)=>{
 
           ;
           
@@ -55,7 +55,7 @@ function login(){
         password: document.getElementById('loginPassword').value
      
         })
-        .then(function(response){
+        .then((response)=>{
         
           if(response.data.error){
             console.log(response.data.error);
@@ -67,7 +67,7 @@ function login(){
           }
         
         })
-        .catch(function(error){
+        .catch((error)=>{
 
           ;
           
@@ -82,7 +82,7 @@ function register(){
         password: document.getElementById('registerPassword').value
      
         })
-        .then(function(response){
+        .then((response)=>{
         
           if(response.data.error){
             ;
@@ -93,7 +93,7 @@ function register(){
           }
         
         })
-        .catch(function(error){
+        .catch((error)=>{
 
           ;
           

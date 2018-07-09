@@ -14,7 +14,7 @@ class UserController{
     let query = encodeURI(q);
     
     var token = req.headers['x-access-token'];
-    jwt.verify(token, jwt_key, function(err, authdata){
+    jwt.verify(token, jwt_key, (err, authdata)=>{
 
       if (err) {
         res.sendStatus(403);
@@ -28,7 +28,7 @@ class UserController{
            }
 
          })
-         .then(function(response){
+         .then((response)=>{
 
            if(response.data.error){
 
@@ -57,7 +57,7 @@ class UserController{
              })
            }
          })
-         .catch(function(error){
+         .catch((error)=>{
 
            res.render("index", {message: JSON.stringify(response.data.error)});
 
@@ -154,7 +154,7 @@ class UserController{
   answertypes(req,res){
     
     var token = req.headers['x-access-token'];
-    jwt.verify(token, jwt_key, function(err, authdata){
+    jwt.verify(token, jwt_key, (err, authdata)=>{
 
       if (err) {
         console.log(err);
@@ -180,7 +180,7 @@ class UserController{
   auth(req,res){
     
     var token = req.headers['x-access-token'];
-    jwt.verify(token, jwt_key, function(err, authdata){
+    jwt.verify(token, jwt_key, (err, authdata)=>{
 
       if (err) {
         console.log(err);

@@ -29,7 +29,7 @@ function isLoggedIn(){
           }
      
         })
-        .then(function(response){
+        .then((response)=>{
         
           if(response.data.error){
             window.location.replace("/");
@@ -40,7 +40,7 @@ function isLoggedIn(){
           }
         
         })
-        .catch(function(error){
+        .catch((error)=>{
 
           ;
           
@@ -71,7 +71,7 @@ function makeQuestion(){
           }
      
         })
-        .then(function(response){
+        .then((response)=>{
         
           if(response.data.error){
             ;
@@ -83,7 +83,7 @@ function makeQuestion(){
           }
         
         })
-        .catch(function(error){
+        .catch((error)=>{
 
           ;
         
@@ -95,7 +95,7 @@ function makeQuestion(){
 function makeTable(data, destination){
 
             let table_string = "<table>";
-            data.forEach(function(type){
+            data.forEach((type)=>{
               //console.log(type);
               let color = 'gray';
               if(type === 'Contrary'){
@@ -125,7 +125,7 @@ function loadInitialData(){
           }
      
         })
-        .then(function(response){
+        .then((response)=>{
         
           if(response.data.error){
             ;
@@ -136,7 +136,7 @@ function loadInitialData(){
           }
         
         })
-        .catch(function(error){
+        .catch((error)=>{
 
           ;
           
