@@ -16,7 +16,7 @@ class UserController{
     let query = encodeURI(q);
     
     var token = req.headers['x-access-token'];
-    jwt.verify(token, public_key, { algorithms: ['RS256'] }, function(err, authdata){
+    jwt.verify(token, public_key, { algorithms: ['RS256'] }, (err, authdata)=>{
 
       if (err) {
         res.sendStatus(403);
@@ -59,7 +59,7 @@ class UserController{
              })
            }
          })
-         .catch(function(error){
+         .catch((error)=>{
 
            res.render("index", {message: JSON.stringify(response.data.error)});
 
@@ -88,6 +88,7 @@ class UserController{
         .then(hashed_password => {
           user.password = hashed_password;
           user.save((err)=>{
+
             if (err){
               res.redirect("/");
             } else {
@@ -110,7 +111,7 @@ class UserController{
                               private_key, 
                               { algorithm: 'RS256', expiresIn:'1h' }, 
 
-                              function(err, newtoken) {
+                              (err, newtoken)=> {
 
                                 console.log(newtoken);
                                 res.json(newtoken);
@@ -160,7 +161,7 @@ class UserController{
                    private_key, 
                    { algorithm: 'RS256', expiresIn: '1h' }, 
 
-                   function(err, newtoken) {
+                   (err, newtoken)=>{
 
                      console.log(newtoken);
                      res.json(newtoken);
@@ -180,7 +181,7 @@ class UserController{
   answertypes(req,res){
     
     var token = req.headers['x-access-token'];
-    jwt.verify(token, public_key, { algorithms: ['RS256'] }, function(err, authdata){
+    jwt.verify(token, public_key, { algorithms: ['RS256'] }, (err, authdata)=>{
 
       if (err) {
         console.log(err);
@@ -206,7 +207,7 @@ class UserController{
   auth(req,res){
     
     var token = req.headers['x-access-token'];
-    jwt.verify(token, public_key, { algorithms: ['RS256'] }, function(err, authdata){
+    jwt.verify(token, public_key, { algorithms: ['RS256'] }, (err, authdata)=>{
 
       if (err) {
         console.log(err);

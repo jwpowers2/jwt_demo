@@ -65,4 +65,10 @@
     * project should be running at localhost:21337
 
     
+### common pitfalls, why use a service?
 
+  -no DB for users, auth  --AMZON incognito
+
+  - real advantage of asymetric encryption ?
+
+  
